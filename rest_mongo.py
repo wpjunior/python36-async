@@ -37,7 +37,7 @@ class BaseCollectionHandler(CollectionNameMixin, RequestHandler):
         body['_id'] = str(uuid.uuid4())
 
         await self.collection.insert_one(body)
-
+        self.set_status(201)
         self.write(json.dumps(body))
 
 
